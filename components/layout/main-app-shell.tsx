@@ -13,7 +13,7 @@ const navItems: NavItem[] = [
   { href: "/dashboard", label: "Painel", icon: "▦" },
   { href: "/tutores", label: "Tutores", icon: "👤" },
   { href: "/pets", label: "Pets", icon: "🐕" },
-  { label: "Agenda", icon: "📅", soon: true },
+  { href: "/agenda", label: "Agenda", icon: "📅" },
 ];
 
 type MainAppShellProps = {
