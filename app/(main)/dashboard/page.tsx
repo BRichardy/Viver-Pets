@@ -44,8 +44,8 @@ export default async function DashboardPage() {
               Painel
             </h1>
             <p className="mt-1 max-w-2xl text-sm text-zinc-600 sm:text-base">
-              Resumo da sua conta e da clínica. Em breve: tutores, pets e
-              consultas.
+              Resumo da sua conta e da clínica. A seguir: pets, consultas e
+              histórico.
             </p>
           </div>
           <span className="w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800 ring-1 ring-emerald-600/15">
@@ -98,7 +98,21 @@ export default async function DashboardPage() {
               <ul className="mt-4 space-y-3 text-sm text-emerald-900/85">
                 <li className="flex gap-2">
                   <span className="text-emerald-600">○</span>
-                  Cadastrar tutores e pets
+                  <span>
+                    <Link
+                      href="/tutores"
+                      className="font-medium underline decoration-emerald-600/40 underline-offset-2 hover:decoration-emerald-700"
+                    >
+                      Tutores
+                    </Link>
+                    {" · "}
+                    <Link
+                      href="/tutores/novo"
+                      className="font-medium underline decoration-emerald-600/40 underline-offset-2 hover:decoration-emerald-700"
+                    >
+                      novo tutor
+                    </Link>
+                  </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-emerald-600">○</span>

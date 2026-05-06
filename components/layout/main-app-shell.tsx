@@ -11,7 +11,7 @@ type NavItem =
 
 const navItems: NavItem[] = [
   { href: "/dashboard", label: "Painel", icon: "▦" },
-  { label: "Tutores", icon: "👤", soon: true },
+  { href: "/tutores", label: "Tutores", icon: "👤" },
   { label: "Pets", icon: "🐕", soon: true },
   { label: "Agenda", icon: "📅", soon: true },
 ];
@@ -123,7 +123,9 @@ export function MainAppShell({
                 );
               }
 
-              const active = pathname === item.href;
+              const active =
+                pathname === item.href ||
+                pathname.startsWith(`${item.href}/`);
               return (
                 <Link
                   key={item.href}
