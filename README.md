@@ -47,7 +47,16 @@ npm run dev
 
 Abra [http://localhost:3000](http://localhost:3000).
 
-Se ainda existir uma pasta **`web/`** vazia ou só com `node_modules` antigo (arquivo travado no Windows), feche o terminal/IDE que estiver usando o projeto e apague a pasta `web/` manualmente. O app agora vive na **raiz**.
+### Supabase Auth (obrigatório para login)
+
+No painel do projeto: **Authentication → URL Configuration**
+
+- **Site URL:** `http://localhost:3000`
+- **Redirect URLs:** inclua `http://localhost:3000/auth/callback` (e em produção a URL real do site).
+
+Para testar mais rápido em desenvolvimento, pode desativar **“Confirm email”** em **Authentication → Providers → Email** (voltar a ativar antes de produção).
+
+**Fluxo de teste:** `/cadastro` → (confirmar email, se ativo) → `/login` → `/onboarding` (primeira clínica) → `/dashboard`.
 
 ## Documentação do produto
 
