@@ -1,3 +1,4 @@
+import { DeleteTutorButton } from "@/components/tutors/delete-tutor-button";
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -81,9 +82,9 @@ export default async function TutoresPage() {
               {tutors.map((t) => (
                 <li
                   key={t.id}
-                  className="flex flex-col gap-1 px-5 py-4 transition hover:bg-zinc-50/80 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                  className="flex flex-col gap-3 px-5 py-4 transition hover:bg-zinc-50/80 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
                 >
-                  <div className="min-w-0">
+                  <div className="min-w-0 flex-1">
                     <p className="font-medium text-zinc-900">{t.full_name}</p>
                     <p className="mt-0.5 text-sm text-zinc-600">
                       {t.phone}
@@ -92,13 +93,32 @@ export default async function TutoresPage() {
                       ) : null}
                     </p>
                   </div>
-                  <p className="shrink-0 text-xs text-zinc-400">
-                    {new Date(t.created_at).toLocaleDateString("pt-PT", {
-                      day: "2-digit",
-                      month: "short",
-                      year: "numeric",
-                    })}
-                  </p>
+                  <div className="flex shrink-0 flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3">
+                    <p className="text-xs text-zinc-400 sm:text-right">
+                      {new Date(t.created_at).toLocaleDateString("pt-PT", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </p>
+                    {canManage ? (
+                      <div className="flex items-center gap-1 border-t border-zinc-100 pt-2 sm:border-0 sm:pt-0">
+                        <Link
+                          href={`/tutores/${t.id}/editar`}
+                          className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-700 transition hover:bg-emerald-50"
+                        >
+                          Editar
+                        </Link>
+                        <span className="text-zinc-200" aria-hidden>
+                          |
+                        </span>
+                        <DeleteTutorButton
+                          tutorId={t.id}
+                          tutorName={t.full_name}
+                        />
+                      </div>
+                    ) : null}
+                  </div>
                 </li>
               ))}
             </ul>
