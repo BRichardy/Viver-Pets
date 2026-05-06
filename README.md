@@ -8,18 +8,26 @@ Código-fonte: [github.com/BRichardy/Viver-Pets](https://github.com/BRichardy/Vi
 
 ```bash
 git remote add origin https://github.com/BRichardy/Viver-Pets.git
-# primeiro push (após commit inicial): git branch -M main && git push -u origin main
+# Branches principais já existentes no remoto: main, staging
 ```
 
-## Branches (sugestão)
+## Branches
+
+Branches no GitHub: [`main`](https://github.com/BRichardy/Viver-Pets/tree/main), [`staging`](https://github.com/BRichardy/Viver-Pets/tree/staging).
 
 | Branch | Uso |
 |--------|-----|
 | `main` | Produção (deploy Vercel Production). Só código estável. |
-| `staging` | Homologação (deploy preview estável ou ambiente dedicado). |
-| `feature/*` ou `fix/*` | Trabalho do dia; abre PR → merge em `staging` ou direto em `main` conforme combinado. |
+| `staging` | Homologação (deploy preview estável ou ambiente dedicado). Espelha o que vai sendo validado antes de subir para `main`. |
+| `feature/*` ou `fix/*` | Trabalho do dia; abre PR → merge em `staging` primeiro (recomendado) ou direto em `main` quando for mudança pequena e segura. |
 
-Fluxo simples no começo: **`main` + branches curtas de feature**; crie `staging` quando precisar de URL fixa de homologação.
+```powershell
+git checkout main
+git checkout staging
+git pull origin staging
+```
+
+Fluxo sugerido: **feature → `staging` → `main`** após validação.
 
 ## Estrutura
 
