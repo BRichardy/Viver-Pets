@@ -12,7 +12,7 @@ type NavItem =
 const navItems: NavItem[] = [
   { href: "/dashboard", label: "Painel", icon: "▦" },
   { href: "/tutores", label: "Tutores", icon: "👤" },
-  { label: "Pets", icon: "🐕", soon: true },
+  { href: "/pets", label: "Pets", icon: "🐕" },
   { label: "Agenda", icon: "📅", soon: true },
 ];
 
@@ -132,8 +132,8 @@ export function MainAppShell({
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
                   className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition ${active
-                      ? "bg-emerald-50 text-emerald-900 ring-1 ring-emerald-600/15"
-                      : "text-zinc-700 hover:bg-zinc-100"
+                    ? "bg-emerald-50 text-emerald-900 ring-1 ring-emerald-600/15"
+                    : "text-zinc-700 hover:bg-zinc-100"
                     }`}
                 >
                   <span className="w-6 text-center text-base">{item.icon}</span>

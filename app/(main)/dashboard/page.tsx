@@ -116,6 +116,24 @@ export default async function DashboardPage() {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-emerald-600">○</span>
+                  <span>
+                    <Link
+                      href="/pets"
+                      className="font-medium underline decoration-emerald-600/40 underline-offset-2 hover:decoration-emerald-700"
+                    >
+                      Pets
+                    </Link>
+                    {" · "}
+                    <Link
+                      href="/pets/novo"
+                      className="font-medium underline decoration-emerald-600/40 underline-offset-2 hover:decoration-emerald-700"
+                    >
+                      novo pet
+                    </Link>
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-emerald-600">○</span>
                   Agenda e consultas
                 </li>
                 <li className="flex gap-2">
